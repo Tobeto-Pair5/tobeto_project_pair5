@@ -8,11 +8,7 @@ from selenium.webdriver.common.keys import Keys
 from constants.globalConstants import *
 import pytest
 from time import sleep
-import os
-import keyboard
 import pyautogui
-
-
 
 
 
@@ -92,7 +88,7 @@ class Test_Register():
   
 
     self.driver.execute_script(SCROLLTO)
-    sleep(10)
+    sleep(2)
     save_button = self.waitForElementVisible((By.XPATH,save_button_Xpath))
     save_button.click()
                                        #WARNİNG MESSAGES     
@@ -123,9 +119,7 @@ class Test_Register():
     pop_up_message1_delete= self.waitForElementVisible((By.XPATH,Pop_up_messsage1_Xpath ))
     assert pop_up_message1_delete.text == Pop_up_messsage1_delete_text
     sleep(2)
-    profile_photo_edit_button = self.waitForElementVisible((By.XPATH,profile_photo_edit_button_Xpath ))
-    actions.move_to_element(profile_photo_edit_button).click().perform()
-    sleep(2)
+    
     
   def test_drapdrop(self):
     self.test_profilim()
@@ -152,7 +146,7 @@ class Test_Register():
     sleep(5)
     pyautogui.press("enter")
     sleep(5)
-    
+   
   def test_copy_paste(self):
     self.test_profilim()
     actions = ActionChains(self.driver)
@@ -160,12 +154,20 @@ class Test_Register():
     edit_profile_photo_button = self.waitForElementVisible((By.XPATH, profile_photo_edit_button_Xpath))
     actions.move_to_element(edit_profile_photo_button).click().perform()
     
+    pyautogui.hotkey('winleft', 'down')
     
+    dosya_x, dosya_y = 1550,553  #dosya kordinatım
+    pyautogui.click(dosya_x, dosya_y)  
+    pyautogui.hotkey('ctrl', 'c') 
+    sleep(5)
+    tarayici_x, tarayici_y = 600, 600
+    pyautogui.click(tarayici_x, tarayici_y)
+    pyautogui.hotkey('ctrl', 'v')
+    sleep(5)
+    pyautogui.press("enter")
+    sleep(5)
     
-    
-    
-    
-   
+
    
   def test_warning_message(self):
     self.test_profilim()
@@ -174,19 +176,19 @@ class Test_Register():
     #NAME
     name_input=self.driver.find_element(By.NAME, "name")
     name_input.clear()
-    name_input.click()
+    # name_input.click()
     self.driver.find_element(By.NAME, "name").send_keys("ebrar")
    
     #LASTNAME
     surname_input=self.driver.find_element(By.NAME, "surname")
     surname_input.clear()
-    surname_input.click()
+    # surname_input.click()
     self.driver.find_element(By.NAME, "surname").send_keys("tobeto")
     
     
     
     #country_flags
-    
+    sleep(2)
     self.driver.find_element(By.NAME, "phoneNumberCountry").click()
     dropdown = self.driver.find_element(By.NAME, "phoneNumberCountry")
     dropdown.find_element(By.XPATH,dropdown_Samoa ).click()
@@ -203,6 +205,7 @@ class Test_Register():
     
     TC_number_input = self.waitForElementVisible((By.NAME, "identifier"))
     TC_number_input.click()
+    TC_number_input.clear()
 
     TC_number_input.send_keys("9828668383")
     assert required_field_message_TC in self.driver.find_element(By.XPATH, required_field_message_TC_XPath).text
@@ -217,7 +220,7 @@ class Test_Register():
         
     country_input=self.waitForElementVisible((By.NAME, "country"))
     country_input.click()
-    
+    country_input.clear()
     country_input.send_keys("T")
     assert required_field_message_Country in self.driver.find_element(By.XPATH,required_field_message_Country_XPath).text
     
@@ -229,6 +232,7 @@ class Test_Register():
     #CİTY
     city_dropdown = self.driver.find_element(By.NAME, "city")
     city_dropdown.find_element(By.XPATH,required_field_message_City_XPath ).click()
+  
     sleep(2)
     
     #DİSTRİCT
@@ -239,12 +243,14 @@ class Test_Register():
     #STREET
     street_input=self.waitForElementVisible((By.NAME,"address"))
     street_input.click()
+    street_input.clear()
     street_input.send_keys(street_input_send_keys)
     assert required_field_about_me in self.driver.find_element(By.XPATH, required_field_message_Street_XPath).text
     sleep(5)
     #ABOUT ME
     about_me_input=self.waitForElementVisible((By.XPATH,required_field_message_about_me_XPath))
     about_me_input.click()
+    about_me_input.clear()
     about_me_input.send_keys(about_me_input_send_keys)
     assert required_field_about_me1 in self.driver.find_element(By.XPATH, required_field_message_about_me_write_XPath).text
     sleep(5)
