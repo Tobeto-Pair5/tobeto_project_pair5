@@ -66,6 +66,8 @@ forbiddenAlert_css = "div[role='alert'] > .toast-body"
 # sil butonu 
 deleteButton_xpath = "//div[@id='__next']/div[@class='back-white']/main/section/div[@class='container']//div[@class='col-12 col-lg-9']/div[1]/div[@class='section-header tobeto-input']/btn[@class='btn social-delete']"
 # silButton_xpath = "//div[@id='__next']/div[@class='back-white']/main/section/div[@class='container']//div[@class='col-12 col-lg-9']/div[2]/div[@class='section-header tobeto-input']/btn[@class='btn social-delete']"
+deleteButton2_xpath = "//div[@id='__next']/div[@class='back-white']/main/section/div[@class='container']//div[@class='col-12 col-lg-9']/div[2]/div[@class='section-header tobeto-input']/btn[@class='btn social-delete']"
+deleteButton3_xpath = "//div[@id='__next']/div[@class='back-white']/main/section/div[@class='container']//div[@class='col-12 col-lg-9']/div[3]/div[@class='section-header tobeto-input']/btn[@class='btn social-delete']"
 deleteAlert_css = "[class='alert-message mx-3']"
 deleteAlert2_css = "[class='alert-message-light mx-3']"
 yesButton_xpath = "//body/div[@role='dialog']/div[@class='modal-dialog modal-dialog-centered']/div[@class='modal-content']//button[@class='btn btn-yes my-3']"

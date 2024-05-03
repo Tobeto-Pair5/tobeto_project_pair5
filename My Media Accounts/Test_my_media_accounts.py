@@ -73,10 +73,10 @@ class Test_My_Media_Accounts:
 
         myProfileButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, myProfileButton_xpath)))
         myProfileButton.click()
-
+        sleep(1)
         editMyProfileButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, editMyProfileButton_xpath)))
         editMyProfileButton.click()
-        
+        sleep(1)
         myMediaAccountsButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, myMediaAccountsButton_xpath)))
         myMediaAccountsButton.click()
         sleep(1)
@@ -84,26 +84,26 @@ class Test_My_Media_Accounts:
         # 1. medya hesabı ekleme
         platformlistButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, platformListButton_xpath)))
         platformlistButton.click()
-
+        sleep(1)
         platformChooseButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, platformChooseButton_xpath)))
         platformChooseButton.click()
-
+        sleep(1)
         platformUrlAdd = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, platformUrlAdd_xpath)))
         platformUrlAdd.send_keys(instagramUrl)
-
+        sleep(1)
         saveButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, saveButton_xpath)))
         saveButton.click()
-
+        sleep(1)
         self.account_added()
         sleep(2)
 
         # Aynı hesabı tekrar ekle (Ayni hesap bilgisi tekrar girilemez.)
         platformListButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, platformListButton_xpath)))
         platformListButton.click()
-
+        sleep(1)
         platformChooseButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, platformChooseButton_xpath)))
         platformChooseButton.click()
-
+        sleep(1)
         platformUrlAdd = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, platformUrlAdd_xpath)))
         platformUrlAdd.send_keys(instagramUrl)
         sleep(1)
@@ -113,7 +113,7 @@ class Test_My_Media_Accounts:
         sleep(1)
 
         platformUrlAdd.clear()
-
+        sleep(1)
         # 2. medya hesabı ekleme
         platformListButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, platformListButton_xpath)))
         platformListButton.click()
@@ -129,15 +129,15 @@ class Test_My_Media_Accounts:
 
         saveButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, saveButton_xpath)))
         saveButton.click()
-        sleep(2)
+        sleep(1)
 
         self.account_added()
-        sleep(2)
+        sleep(1)
 
         # 3. medya hesabı ekleme
         platformListButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, platformListButton_xpath)))
         platformListButton.click()
-        sleep(2)
+        sleep(1)
 
         platformChooseButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, platformChooseButton3_xpath)))
         platformChooseButton.click()
@@ -149,29 +149,29 @@ class Test_My_Media_Accounts:
 
         saveButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, saveButton_xpath)))
         saveButton.click()
-        sleep(2)
+        sleep(1)
 
         self.account_added
-        sleep(2)
+        sleep(1)
 
         max3alerts = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.CSS_SELECTOR, max3alerts_css)))
         assert max3alerts.text == "En fazla 3 adet medya seçimi yapılabilir."
 
         editAccountInformation = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.CSS_SELECTOR, editAccountInformation_css)))
         editAccountInformation.click()
-        sleep(3)
+        sleep(1)
 
         editUrl = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, editUrl_xpath)))
         editUrl.send_keys("/")
-        sleep(2)
+        sleep(1)
 
         update = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, update_xpath)))
         update.click()
-        sleep(2)
+        sleep(1)
 
         updateAlert = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.CSS_SELECTOR, forbiddenAlert_css)))
         assert updateAlert.text == "• Forbidden"
-
+        sleep(1)
 
     def test_successful_account_deletion(self):
 
@@ -179,10 +179,10 @@ class Test_My_Media_Accounts:
 
         myProfileButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, myProfileButton_xpath)))
         myProfileButton.click()
-
+        sleep(1)
         editMyProfileButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, editMyProfileButton_xpath)))
         editMyProfileButton.click()
-        
+        sleep(1)       
         myMediaAccountsButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, myMediaAccountsButton_xpath)))
         myMediaAccountsButton.click()
         sleep(1)
@@ -198,16 +198,16 @@ class Test_My_Media_Accounts:
 
         deleteAlert2 = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.CSS_SELECTOR, deleteAlert2_css)))
         assert deleteAlert2.text == "Bu işlem geri alınamaz."
-        sleep(2)
+        sleep(3)
 
         yesButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, yesButton_xpath)))
         yesButton.click()
-        sleep(2)
+        sleep(4)
 
         self.account_deleted()
-
-        # 2. medya hesabımı sil
-        deleteButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, deleteButton_xpath)))
+        sleep(1)
+        # 2. medya hesabimi sil
+        deleteButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, deleteButton2_xpath)))
         deleteButton.click()
         sleep(1)
 
@@ -226,7 +226,7 @@ class Test_My_Media_Accounts:
         self.account_deleted()
 
         # 3. medya hesabımı sil
-        deleteButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, deleteButton_xpath)))
+        deleteButton = WebDriverWait(self.driver, 5).until(ec.visibility_of_element_located((By.XPATH, deleteButton2_xpath)))
         deleteButton.click()
         sleep(1)
 
@@ -243,4 +243,5 @@ class Test_My_Media_Accounts:
         sleep(2)
 
         self.account_deleted()
+        sleep(1)
         
