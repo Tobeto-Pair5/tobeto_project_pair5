@@ -22,7 +22,7 @@ class Test_Degerlendirmeler:
         passwordInput.send_keys(password)
         loginButton = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.XPATH, login_button_xpath)))
         loginButton.click()
-        sleep(2)
+        sleep(3)
     def testReviewsbegin(self):
         self.valid_login_method("moxar70660@abnovel.com","test1234")
         sleep(2)

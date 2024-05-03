@@ -53,7 +53,7 @@ class Test_Chatbot:
         self.driver.switch_to.frame(iframe)
         endChatbutton = WebDriverWait(self.driver, 20).until(ec.element_to_be_clickable((By.XPATH, c.endChatButton)))
         endChatbutton.click()
-        sleep(5)    
+        sleep(6)    
         endChatbox = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.CSS_SELECTOR, c.endChatBox)))
         endChatbox = endChatbox.is_displayed()
         assert endChatbox == True
