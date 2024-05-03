@@ -22,7 +22,7 @@ class Test_Valid_Login:
         sleep(2)
         emailInput.send_keys(email)
         passwordInput = WebDriverWait(self.driver,5).until(ec.visibility_of_element_located((By.NAME,c.passwordName)))
-        sleep(2)
+        sleep(3)
         passwordInput.send_keys(password)
         loginButton = self.driver.find_element(By.XPATH,c.loginButton)
         loginButton.click()

@@ -70,7 +70,7 @@ class Test_My_Education:
         saveButton.click()
         expectedResult = self.webdriver_wait(10,c.expectedResultCss)
         assert expectedResult.text == actualResult  
-        sleep(3) 
+        sleep(4) 
     def test_empty_field_register(self,actualResult = "Doldurulması zorunlu alan*"):
         validLoginClass = Test_Valid_Login(self.driver)
         validLoginClass.valid_login("moxar70660@abnovel.com","test1234")
